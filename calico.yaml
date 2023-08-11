@@ -4717,7 +4717,12 @@ spec:
         - name: policysync
           hostPath:
             type: DirectoryOrCreate
-            path: /var/run/nodeagent     
+            path: /var/run/nodeagent
+        # used flexvolume driver
+        - hostPath:
+            path: /opt/kubernetes/kubelet-plugins/volume/exec/nodeagent~uds
+            type: DirectoryOrCreate
+          name: flexvol-driver-host
 ---
 # Source: calico/templates/calico-kube-controllers.yaml
 # See https://github.com/projectcalico/kube-controllers
