@@ -4567,7 +4567,7 @@ spec:
               value: "k8s,bgp"
             # Autodetect method
             - name: IP_AUTODETECTION_METHOD
-              value: interface=eth0
+              value: "can-reach=192.168.72.254"
             # Auto-detect the BGP IP address.
             - name: IP
               value: "autodetect"
@@ -4718,11 +4718,6 @@ spec:
           hostPath:
             type: DirectoryOrCreate
             path: /var/run/nodeagent
-        # used flexvolume driver
-        - hostPath:
-            path: /opt/kubernetes/kubelet-plugins/volume/exec/nodeagent~uds
-            type: DirectoryOrCreate
-          name: flexvol-driver-host
 ---
 # Source: calico/templates/calico-kube-controllers.yaml
 # See https://github.com/projectcalico/kube-controllers
